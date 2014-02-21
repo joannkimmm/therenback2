@@ -6,8 +6,7 @@ var models = require('../models');
  */
 
 exports.view = function(req, res){
-	res.render('login', function(err, html) {
-    	console.log(html);
-    	res.send('done');
-  }));
+
+		res.render('login', { 'projects': projects });
+
 };
