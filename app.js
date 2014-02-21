@@ -51,6 +51,34 @@ app.get('/', function(req, res) {
 app.get('/login', function(req, res) {
 	res.sendfile('./static/login.html');
 });
+app.get('/tutorial', function(req, res) {
+	res.sendfile('./static/tutorial.html');
+});
+app.get('/tutorial1', function(req, res) {
+	res.sendfile('./static/tutorial1.html');
+});
+app.get('/home', function(req, res) {
+	res.sendfile('./static/home.html');
+});
+app.get('/camera', function(req, res) {
+	res.sendfile('./static/camera.html');
+});
+app.get('/help', function(req, res) {
+	res.sendfile('./static/help.html');
+});
+app.get('/sethome', function(req, res) {
+	res.sendfile('./static/sethome.html');
+});
+app.get('/bank', function(req, res) {
+	res.sendfile('./static/bank.html');
+});
+app.get('/account', function(req, res) {
+	res.sendfile('./static/account.html');
+});
+app.get('/filler', function(req, res) {
+	res.sendfile('./static/filler.html');
+});
+
 app.get('/project/:id', project.projectInfo);
 app.post('/project/new', project.addProject);
 app.post('/project/:id/delete', project.deleteProject);
