@@ -3,6 +3,7 @@ var data = require('../moments.json');
 
 exports.view = function(req, res) { 
   res.render('moments');
+  console.log(data);
 }
 exports.view = function(req, res) { 
   res.render('moments', data);
