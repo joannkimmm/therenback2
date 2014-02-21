@@ -10,7 +10,7 @@ var handlebars = require('express3-handlebars');
 var mongoose = require('mongoose');
 
 var moments = require('./routes/moments');
-// var mymoments = require('./routes/mymoments');
+var mymoments = require('./routes/mymoments');
 var project = require('./routes/project');
 
 
