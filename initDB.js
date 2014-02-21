@@ -37,14 +37,14 @@ models.Moments
 function onceClear(err) {
   if(err) console.log(err);
 
-  // loop over the projects, construct and save an object from each one
+  // loop over the moments, construct and save an object from each one
   // Note that we don't care what order these saves are happening in...
-  var to_save_count = projects_json.length;
+  var to_save_count = moments_json.length;
   for(var i=0; i<moments_json.length; i++) {
     var json = moments_json[i];
-    var proj = new models.Moments(json);
+    var mom = new models.Moments(json);
 
-    proj.save(function(err, proj) {
+    mom.save(function(err, mom) {
       if(err) console.log(err);
 
       to_save_count--;
