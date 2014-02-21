@@ -2,15 +2,15 @@
 var Mongoose = require('mongoose');
 
 
-var ProjectSchema = new Mongoose.Schema({
+var MomentsSchema = new Mongoose.Schema({
   // fields are defined here
-  "title": String,
-  "date": Date,
-  "summary": String,
-  "image": String
+  "location": String,
+  "imgsrc": String,
+  "numPhotos": Number,
+  "heart": String
 
 });
 
-exports.Project = Mongoose.model('Project', ProjectSchema);
+exports.Moments = Mongoose.model('Moments', MomentsSchema);
 
 
