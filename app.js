@@ -31,6 +31,9 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', handlebars());
 app.set('view engine', 'handlebars');
+
+app.use(express.static(__dirname + '/public'));
+
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
@@ -45,6 +48,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+
 
 // static page routes
 app.get('/', function(req, res) {
@@ -84,6 +89,7 @@ app.get('/filler', function(req, res) {
 // json/ handlebars routes
 
 app.get('/moments', moments.view);
+app.get('/moments/:id', moments.glyphChange);
 app.get('/project/:id', project.projectInfo);
 app.post('/project/new', project.addProject);
 app.post('/project/:id/delete', project.deleteProject);

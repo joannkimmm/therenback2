@@ -16,31 +16,26 @@ function initializePage() {
 		// Get the div ID, e.g., "project3"
 		var momentID = $(this).closest('.heartoverlay').attr('id');
 		// get rid of 'project' from the front of the id 'project3'
-		var idNumber = momentID.substr('moment'.length);
+		var idNumber = momentID.substr('moments'.length);
 
 		// this is the URL we'll call
-		var url_call = '/moment/'+idNumber;
+		var url_call = '/moments/'+idNumber;
 
 		// How to respond to the GET request
-		function addProjectDetails(moment_json) {
-			// compose the HTML
-			var new_html =
-				'glyphicon glyphicon-heart'+moment_json['heart'];
-
+		function changeIcon() {
 			// get the span to change the glyph
-			var details_div = $('#project' + idNumber + ' .details');
+			var toChange = $(".heartoverlay #moments"+idNumber).find("span");
 			// add the content to the DIV
-			details_div.html(new_html);
+			if(toChange.hasClass("glyphicon-heart")){
+				toChange.removeClass("glyphicon-heart").addClass("glyphicon-heart-empty");
+			} else if(toChange.hasClass("glyphicon-heart-empty")){
+				toChange.removeClass("glyphicon-heart-empty").addClass("glyphicon-heart");
+			}
 
-			details_div.find('.project-delete').click(function(e) {
-				$.post('/project/'+idNumber+'/delete', function() {
-					window.location.href = '/';
-				});
-			});
 		}
 
 		// issue the GET request
-		$.get(url_call, addProjectDetails);
+		$.get(url_call, changeIcon);
 	});
 
 	$('#newProjectSubmitButton').click(function(e) {
