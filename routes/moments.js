@@ -2,6 +2,9 @@ var models = require('../models');
 var data = require('../moments.json');
 
 exports.view = function(req, res) { 
+  res.render('moments');
+}
+exports.view = function(req, res) { 
   res.render('moments', data);
 }
 
