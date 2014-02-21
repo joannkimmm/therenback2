@@ -10,6 +10,9 @@ var handlebars = require('express3-handlebars');
 var mongoose = require('mongoose');
 
 var index = require('./routes/index');
+var login = require('./routes/login');
+var moments = require('./routes/moments');
+var mymoments = require('./routes/mymoments');
 var project = require('./routes/project');
 // Example route
 // var user = require('./routes/user');
@@ -45,6 +48,7 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
+app.get('/login', login.view);
 app.get('/project/:id', project.projectInfo);
 app.post('/project/new', project.addProject);
 app.post('/project/:id/delete', project.deleteProject);
