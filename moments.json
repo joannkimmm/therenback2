@@ -1,34 +1,26 @@
-{
-	"moments": [
-		{
-			"id": 1,
-			"location": "San Francisco",
-			"imgsrc": "images/cover/sanfrancisco.jpeg", 
-			"numPhotos": 9,
-			"heart": "-empty"
-		},
-		{
-			
-			"id": 2,
-			"location": "Rome",
-			"imgsrc": "images/cover/rome.jpeg", 
-			"numPhotos": 5,
-			"heart": "-empty"
-		},
-		{
-		
-			"id": 3,
-			"location": "London",
-			"imgsrc": "images/cover/london.jpeg", 
-			"numPhotos": 7,
-			"heart": ""
-		},
-		{
-			"id": 4,
-			"location": "Sydney",
-			"imgsrc": "images/cover/sydney.jpeg", 
-			"numPhotos": 3,
-			"heart": "-empty"
-		}
-	]
-}
+[
+	{
+		"location": "San Francisco",
+		"imgsrc": "images/cover/sanfrancisco.jpeg", 
+		"numPhotos": 9,
+		"heart": "-empty"
+	},
+	{
+		"location": "Rome",
+		"imgsrc": "images/cover/rome.jpeg", 
+		"numPhotos": 5,
+		"heart": "-empty"
+	},
+	{
+		"location": "London",
+		"imgsrc": "images/cover/london.jpeg", 
+		"numPhotos": 7,
+		"heart": ""
+	},
+	{
+		"location": "Sydney",
+		"imgsrc": "images/cover/sydney.jpeg", 
+		"numPhotos": 3,
+		"heart": "-empty"
+	}
+]
