@@ -9,15 +9,17 @@ var path = require('path');
 var handlebars = require('express3-handlebars');
 var mongoose = require('mongoose');
 
-// var moments = require('./routes/moments');
+var moments = require('./routes/moments');
 // var mymoments = require('./routes/mymoments');
 var project = require('./routes/project');
+
+
 // Example route
 // var user = require('./routes/user');
 
 // Connect to the Mongo database, whether locally or on Heroku
 // MAKE SURE TO CHANGE THE NAME FROM 'lab7' TO ... IN OTHER PROJECTS
-var local_database_name = 'lab7';
+var local_database_name = 'therenback';
 var local_database_uri  = 'mongodb://localhost/' + local_database_name
 var database_uri = process.env.MONGOLAB_URI || local_database_uri
 mongoose.connect(database_uri);
@@ -44,7 +46,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-// Add routes here
+// static page routes
 app.get('/', function(req, res) {
 	res.sendfile('./static/index.html');
 });
@@ -79,6 +81,9 @@ app.get('/filler', function(req, res) {
 	res.sendfile('./static/filler.html');
 });
 
+// json/ handlebars routes
+
+app.get('/moments', moments.view);
 app.get('/project/:id', project.projectInfo);
 app.post('/project/new', project.addProject);
 app.post('/project/:id/delete', project.deleteProject);
