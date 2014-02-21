@@ -11,8 +11,8 @@ var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var login = require('./routes/login');
-var moments = require('./routes/moments');
-var mymoments = require('./routes/mymoments');
+// var moments = require('./routes/moments');
+// var mymoments = require('./routes/mymoments');
 var project = require('./routes/project');
 // Example route
 // var user = require('./routes/user');
