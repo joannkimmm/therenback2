@@ -10,7 +10,7 @@ var handlebars = require('express3-handlebars');
 var mongoose = require('mongoose');
 
 var moments = require('./routes/moments');
-// var mymoments = require('./routes/mymoments');
+var mymoments = require('./routes/mymoments');
 var project = require('./routes/project');
 
 
@@ -90,6 +90,8 @@ app.get('/filler', function(req, res) {
 
 app.get('/moments', moments.view);
 app.get('/moments/:id', moments.glyphChange);
+app.get('/mymoments', mymoments.view;
+
 app.get('/project/:id', project.projectInfo);
 app.post('/project/new', project.addProject);
 app.post('/project/:id/delete', project.deleteProject);
