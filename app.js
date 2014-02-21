@@ -11,7 +11,7 @@ var mongoose = require('mongoose');
 
 var moments = require('./routes/moments');
 var mymoments = require('./routes/mymoments');
-var project = require('./routes/project');
+// var project = require('./routes/project');
 
 
 // Example route
@@ -92,9 +92,9 @@ app.get('/moments', moments.view);
 app.get('/moments/:id', moments.glyphChange);
 app.get('/mymoments', mymoments.view;
 
-app.get('/project/:id', project.projectInfo);
-app.post('/project/new', project.addProject);
-app.post('/project/:id/delete', project.deleteProject);
+// app.get('/project/:id', project.projectInfo);
+// app.post('/project/new', project.addProject);
+// app.post('/project/:id/delete', project.deleteProject);
 // Example route
 // app.get('/users', user.list);
 

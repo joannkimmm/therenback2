@@ -13,7 +13,7 @@ var MomentsSchema = new Mongoose.Schema({
 });
 exports.Moments = Mongoose.model('Moments', MomentsSchema);
 
-var MyMomentsSchema = new Mongoose.Schema({
+var myMomentsSchema = new Mongoose.Schema({
   // fields are defined here
   "id": Number,
   "location": String,
@@ -22,5 +22,5 @@ var MyMomentsSchema = new Mongoose.Schema({
   "heart": String
 
 });
-exports.MyMoments = Mongoose.model('MyMoments', MyMomentsSchema);
+exports.myMoments = Mongoose.model('myMoments', myMomentsSchema);
 
