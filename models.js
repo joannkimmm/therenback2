@@ -23,3 +23,13 @@ var myMomentsSchema = new Mongoose.Schema({
 });
 exports.myMoments = Mongoose.model('myMoments', myMomentsSchema);
 
+var FavoritesSchema = new Mongoose.Schema({
+  // fields are defined here
+  "id": Number,
+  "location": String,
+  "imgsrc": String,
+  "numPhotos": Number,
+  "heart": String
+});
+exports.Favorites = Mongoose.model('Favorites', FavoritesSchema);
+
