@@ -40,9 +40,10 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(express.cookieDecoder());
+app.use(express.session());
 app.use(express.methodOverride());
 app.use(express.cookieParser('Intro HCI secret key'));
-app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -100,6 +101,58 @@ app.get('/favorites', favorites.view);
 // app.post('/project/:id/delete', project.deleteProject);
 // Example route
 // app.get('/users', user.list);
+
+app.configure('development', function() {
+	app.set('db-uri', 'mongodb': 'therenback2.herokuapp.com')
+});
+
+var db = mongoose.connect(app.set('db-uri'));
+
+function mongoStoreConnectionArgs(){
+	return {
+		dbname: db.db.databaseName,
+		host: db.db.serverConfig.host,
+		port: db.db.serverConfig.port,
+		username: db.uri.username,
+		password: db.uri.password 
+	};
+}
+
+app.use(express.session({
+	store: mongoStore(mongoStoreConnectionArgs())
+}));
+
+
+function loadUser(req, res, next) {
+  if (req.session.user_id) {
+    User.findById(req.session.user_id, function(err, user) {
+      if (user) {
+        req.currentUser = user;
+        next();
+      } else {
+        res.redirect('./static/signup.html');
+      }
+    });
+  } else if (req.cookies.logintoken) {
+    authenticateFromLoginToken(req, res, next);
+  } else {
+    res.redirect('./static/signup.html');
+  }
+}
+
+app.get('/', loadUser, function(req, res) {
+	res.redirect('./static/home.html');
+});
+
+app.post('./static/login.html', function (req, res) {
+	var post = req.body;
+	if (post.user == 'john' && post.password == 'johnspassword') {
+		req.session.user_id = johns_user_id_here;
+		res.redirect('./static/home.html');
+	} else {
+		res.send('Invalid Username or Password');
+	}
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
